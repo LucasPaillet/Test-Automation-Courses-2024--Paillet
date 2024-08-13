@@ -1,0 +1,86 @@
+classDiagram
+    Employee "1"-->"1" Role : +role
+    Team "1"-->"n" Employee: -members
+    Team "1"-->"1" Employee: -leader
+    Team "1"-->"n" Project: +assignedProject
+    Employee "n"-->"n" Skills: +skills
+    Employee "1"-->"1" Hardware: +assignedHhardware
+    Role "n"-->"n" Skills: +requiredSkills
+    Client "1"-->"n" Project: +project
+    Project "1"-->"n" UserStory: +userStories
+    Project "1"-->"n" Category: +category
+    Project "1"-->"1" Status: +status
+    UserStory "1"o-->"n" Task: +tasks
+    Task "1"-->"1" Status: -status
+    Hardware "1"-->"1" Status: -status
+    Category "n"-->"n" Role: +requiredRoles
+
+
+    class Employee{
+        -String firstname
+        -String lastname
+        -Date hiringDate
+    }
+
+    class Role{
+        -double baseSalary
+        -String name
+        -String description
+    }
+
+    class Project{
+        -int code
+        -Date deadLine
+        -String name
+        -String description
+        -Date startDate
+    }
+
+    class Client{
+        -String contactMail
+        -String name
+        -String company
+    }
+
+    class Skills{
+        -String name
+        -String description
+        -String scope
+    }
+
+    class Team{
+        -int code;
+        -boolean isOnProject
+        -String name
+    }
+
+    class Hardware{
+        -String code
+        -int totalRAM
+        -int diskCapacity
+        -String os
+    }
+
+    class UserStory{
+        -int code
+        -int complexity
+        -String acceptanceCriteria
+    }
+
+    class Task{
+        -String code
+        -int complexity
+        -int estimatedTime
+        -Date startDate
+    }
+
+    class Status{
+        -String name
+        -String description
+        -String scope
+    }
+
+    class Category{
+        -String name
+        -String description
+    }

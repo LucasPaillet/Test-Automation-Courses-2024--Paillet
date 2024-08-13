@@ -11,9 +11,7 @@ public class QuickSort
     public int partition(int[] array, int low, int high)
     {
         var pivot = array[high];
-
         var i = (low - 1);
-
         for (int j = low; j <= (high - 1); j++)
         {
             if (array[j] < pivot)
